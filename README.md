@@ -1,4 +1,4 @@
-FE only event countdown
+Simple event countdown
 
 demo: https://trzye.github.io/ecountdown
 
