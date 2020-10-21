@@ -19,11 +19,12 @@ h2 {
 #eventTitle {
     font-size: 3rem;
     line-height: 3rem;
+    text-align: center;
     text-transform: uppercase;
 }
 
 body {
-    max-width: 50rem;
+    max-width: 65rem;
     margin: auto;
     line-height: 2rem;
 }
