@@ -2,40 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <title>Event Countdown</title>
+    <link rel="stylesheet" href="sakuracss/sakura-dark-solarized.css">
+    <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="dateutils.js"></script>
     <script type="text/javascript" src="ecountdown.js"></script>
 </head>
 <body onload="ECountDown.INSTANCE.init()">
-    <a id="newEventLink">Create new event countdown</a>
+
+<div class="container">
+
+    <h1>3E-COUNTDOWN</h1>
+    <hr>
+    <div><a id="newEventLink">Create new</a></div>
+
     <form id="submitForm" onsubmit="ECountDown.INSTANCE.submitClicked(event)" method="get">
+        <label for="title">Event</label>
         <input required placeholder="Event title" id="title" type="text">
-
+        <label for="date">Date</label>
         <input required id="date" type="date">
-
+        <label for="time">Time</label>
         <input required id="time" type="time">
-
+        <label for="zone">Zone</label>
         <input required autocomplete="off" id="zone" list="zones">
-
-        <datalist id="zones">
-        </datalist>
-
-        <input type="submit">
+        <datalist id="zones"></datalist>
+        <div hidden id="error"></div>
+        <input type="submit" value="DONE">
     </form>
+
     <div hidden id="countDown">
-        <h1 id="eventTitle"></h1>
-        <h2>Time in your zone (<span id="yourZone"></span>)</h2>
+        <div>
+            <label>Event</label><div id="eventTitle"></div>
+        </div>
 
-        <div id="yourTime"></div>
+        <div id="countDownTimer">
+            <div>
+                <h3>Hours</h3><div id="untilHours"></div>
+            </div>
 
-        <h2>Time in submitted zone (<span id="theirZone"></span>)</h2>
-        <div id="theirTime"></div>
+            <div>
+                <h3>Minutes</h3><div id="untilMinutes"></div>
+            </div>
 
-        <h2>Counter</h2>
-        Hours: <span id="untilHours"></span>
-        Minutes: <span id="untilMinutes"></span>
-        Seconds: <span id="untilSecond"></span>
+            <div>
+                <h3>Seconds</h3> <div id="untilSecond"></div>
+            </div>
+        </div>
+
+
+        <div id="countDownEventTimes">
+            <div>
+                <label>Your time</label>
+                <div><span id="yourTime"></span> (<span id="yourZone"></span>)</div>
+            </div>
+            <div>
+                <label>Submitted time</label>
+                <div><span id="theirTime"></span> (<span id="theirZone"></span>)</div>
+            </div>
+        </div>
+
     </div>
+
+</div>
+
 </body>
 </html>

@@ -9,10 +9,10 @@ class ECountDown {
         let share = params.get("share");
         try {
             if(share) {
-                share = JSON.parse(atob(share));
+                share = JSON.parse(decodeURIComponent(escape(atob(share))));
                 this.runCountDown(share.d, share.h, share.z, share.t);
-                document.getElementById("countDown").hidden = false;
                 document.getElementById("submitForm").hidden = true;
+                document.getElementById("countDown").hidden = false;
             }
         } catch (e) {
             console.error(e);
@@ -24,13 +24,17 @@ class ECountDown {
 
     submitClicked(event) {
         event.preventDefault();
+        document.getElementById("error").hidden = true;
         try {
             let dateValue = event.target.date.value;
             let timeValue = event.target.time.value;
             let zoneValue = event.target.zone.value;
             let titleValue = event.target.title.value;
+            this.runCountDown(dateValue, timeValue, zoneValue, titleValue);
             window.location = this.getShareUrl(dateValue, timeValue, zoneValue, titleValue);
         } catch (e) {
+            document.getElementById("error").hidden = false;
+            document.getElementById("error").innerText = e.toString().split(/:\s+/)[1];
             console.error(e);
         }
     }
@@ -47,12 +51,12 @@ class ECountDown {
 
 
     getShareUrl(dateValue, timeValue, zoneValue, titleValue) {
-        return this.getBaseUrl() + "?share=" + btoa(JSON.stringify({
+        return this.getBaseUrl() + "?share=" + btoa(unescape(encodeURIComponent(JSON.stringify({
             d: dateValue,
             h: timeValue,
             z: zoneValue,
             t: titleValue
-        }));
+        }))));
     }
 
     getBaseUrl() {
