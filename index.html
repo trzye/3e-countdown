@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Countdown</title>
-    <script type="text/javascript" src="countdown.js"></script>
+    <script type="text/javascript" src="dateutils.js"></script>
+    <script type="text/javascript" src="ecountdown.js"></script>
 </head>
-<body onload="start()">
-    <a href="/ecountdown">Create new event countdown</a>
-    <form id="submitForm" onsubmit="submitClicked(event)" method="get">
+<body onload="ECountDown.INSTANCE.init()">
+    <a id="newEventLink">Create new event countdown</a>
+    <form id="submitForm" onsubmit="ECountDown.INSTANCE.submitClicked(event)" method="get">
         <input required placeholder="Event title" id="title" type="text">
 
         <input required id="date" type="date">
@@ -22,10 +23,7 @@
 
         <input type="submit">
     </form>
-    <div hidden id="result">
-        <h2>Share</h2>
-        <a id="shareUrl"></a>
-
+    <div hidden id="countDown">
         <h1 id="eventTitle"></h1>
         <h2>Time in your zone (<span id="yourZone"></span>)</h2>
 
