@@ -2,6 +2,6 @@ Simple event countdown
 
 demo: https://trzye.github.io/3e-countdown
 
-example event: 
+example event: https://trzye.github.io/3e-countdown/?share=eyJkIjoiMjAyMC0xMC0yMiIsImgiOiIxNTowMCIsInoiOiJFdXJvcGUvV2Fyc2F3IiwidCI6IkNyb3duIFR1bmRyYSByZWxlYXNlIGRhdGUifQ==
 
 using sakura-css: https://github.com/oxalorg/sakura
