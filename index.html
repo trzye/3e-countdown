@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countdown!</title>
+    <script type="text/javascript" src="countdown.js"></script>
+</head>
+<body onload="start()">
+    <a href="/">Create new counter</a>
+    <form id="submitForm" onsubmit="submitClicked(event)" method="get">
+        <input required placeholder="Counter title" id="title" type="text">
+
+        <input required id="date" type="date">
+
+        <input required id="time" type="time">
+
+        <input required autocomplete="off" id="zone" list="zones">
+
+        <datalist id="zones">
+        </datalist>
+
+        <input type="submit">
+    </form>
+    <div hidden id="result">
+        <h2>Share</h2>
+        <a target="_blank" id="shareUrl"></a>
+
+        <h1 id="eventTitle"></h1>
+        <h2>Time in your zone (<span id="yourZone"></span>)</h2>
+
+        <div id="yourTime"></div>
+
+        <h2>Time in submitted zone (<span id="theirZone"></span>)</h2>
+        <div id="theirTime"></div>
+
+        <h2>Counter</h2>
+        Hours: <span id="untilHours"></span>
+        Minutes: <span id="untilMinutes"></span>
+        Seconds: <span id="untilSecond"></span>
+    </div>
+</body>
+</html>
