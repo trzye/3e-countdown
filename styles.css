@@ -108,3 +108,7 @@ input {
     font-weight: bold;
     border-style: solid;
 }
+
+h3 {
+    font-size: 2rem;
+}
