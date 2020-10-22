@@ -40,6 +40,10 @@ body {
     padding: 0.5rem;
 }
 
+#shareLink {
+    float: right;
+}
+
 #submitForm {
     margin-top: 1.5rem;
     display: flex;

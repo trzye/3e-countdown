@@ -10,9 +10,15 @@ class ECountDown {
         try {
             if(share) {
                 share = JSON.parse(decodeURIComponent(escape(atob(share))));
-                this.runCountDown(share.d, share.h, share.z, share.t);
+                let calculation = this.runCountDown(share.d, share.h, share.z, share.t);
                 document.getElementById("submitForm").hidden = true;
                 document.getElementById("countDown").hidden = false;
+                document.title = "3E-COUNTDOWN | " + share.t + " | " + calculation.your.time + " (" + calculation.your.zone + ")";
+                if(navigator.share){
+                    document.getElementById("shareLink").hidden = false;
+                }
+            } else {
+                document.title = "3E-COUNTDOWN | NEW"
             }
         } catch (e) {
             console.error(e);
@@ -20,6 +26,15 @@ class ECountDown {
         this.initZones();
         document.getElementById("zone").value = DateUtils.getDefaultZone();
         document.getElementById("newEventLink").href = this.getBaseUrl();
+    }
+
+    share(){
+        navigator
+            .share({
+                title: "3E-COUNTDOWN",
+                text: document.title.replace("3E-COUNTDOWN |", ""),
+                url: window.location.href
+            })
     }
 
     submitClicked(event) {
@@ -87,13 +102,11 @@ class ECountDown {
             document.getElementById("untilSecond").innerText = "" + calculation.until.seconds;
             if(calculation.until.hours === 0 && calculation.until.minutes === 0 && calculation.until.seconds >= -1 && calculation.until.seconds <= 20 ) {
                 document.getElementById("warning").hidden = false;
-                document.getElementsByTagName("body")[0].className = "shake" + Math.round(calculation.until.seconds/2);
-                document.getElementsByTagName("div")[1].className = "shake" + Math.round(calculation.until.seconds/2);
-                document.getElementsByTagName("div")[2].className = "shake" + Math.round(calculation.until.seconds/2);
-                document.getElementsByTagName("div")[4].className = "shake" + Math.round(calculation.until.seconds/2);
-                document.getElementsByTagName("div")[5].className = "shake" + Math.round(calculation.until.seconds/2);
-                document.getElementsByTagName("div")[6].className = "shake" + Math.round(calculation.until.seconds/2);
-                document.getElementsByTagName("div")[7].className = "shake" + Math.round(calculation.until.seconds/2);
+                let shakeNumber = Math.round(calculation.until.seconds/2);
+                document.getElementsByTagName("body")[0].className = "shake" + shakeNumber;
+                for(let i = 1; i< 8; i++) {
+                    document.getElementsByTagName("div")[i].className = "shake" + shakeNumber;
+                }
                 if(calculation.until.seconds === -1) {
                     window.location = window.location.href;
                 }
@@ -102,6 +115,7 @@ class ECountDown {
             }
 
         }, 500);
+        return calculation;
     }
 
 
