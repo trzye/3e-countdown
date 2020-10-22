@@ -70,8 +70,12 @@ class ECountDown {
         document.getElementById("eventTitle").innerText = titleValue;
         document.getElementById("yourTime").innerText = calculation.your.time;
         document.getElementById("yourZone").innerText = calculation.your.zone;
-        document.getElementById("theirTime").innerText = calculation.their.time;
-        document.getElementById("theirZone").innerText = calculation.their.zone;
+        if(calculation.their.time !== calculation.your.time && calculation.your.zone !== calculation.their.zone){
+            document.getElementById("theirTime").innerText = calculation.their.time;
+            document.getElementById("theirZone").innerText = calculation.their.zone;
+        } else {
+            document.getElementById('theirTimeSection').hidden = true;
+        }
 
         if (this.interval != null) clearInterval(this.interval);
         this.interval = setInterval(() => {

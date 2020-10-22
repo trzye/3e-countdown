@@ -41,14 +41,14 @@ body {
 }
 
 #submitForm {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 #countDown {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
