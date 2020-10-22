@@ -86,6 +86,7 @@ class ECountDown {
             document.getElementById("untilMinutes").innerText = "" + calculation.until.minutes;
             document.getElementById("untilSecond").innerText = "" + calculation.until.seconds;
             if(calculation.until.hours === 0 && calculation.until.minutes === 0 && calculation.until.seconds >= -1 && calculation.until.seconds <= 20 ) {
+                document.getElementById("warning").hidden = false;
                 document.getElementsByTagName("body")[0].className = "shake" + Math.round(calculation.until.seconds/2);
                 document.getElementsByTagName("div")[1].className = "shake" + Math.round(calculation.until.seconds/2);
                 document.getElementsByTagName("div")[2].className = "shake" + Math.round(calculation.until.seconds/2);
