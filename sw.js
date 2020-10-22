@@ -6,7 +6,6 @@ self.addEventListener('install', function(e) {
                 "android-chrome-192x192.png",
                 "android-chrome-512x512.png",
                 "index.html",
-                "main.js",
                 "ecountdown.js",
                 "manifest.json",
                 "dateutils.js",

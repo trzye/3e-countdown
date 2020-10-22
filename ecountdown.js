@@ -26,6 +26,9 @@ class ECountDown {
         this.initZones();
         document.getElementById("zone").value = DateUtils.getDefaultZone();
         document.getElementById("newEventLink").href = this.getBaseUrl();
+        if (navigator.serviceWorker) {
+            navigator.serviceWorker.register('./sw.js');
+        }
     }
 
     share(){
