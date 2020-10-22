@@ -87,14 +87,13 @@ class ECountDown {
             document.getElementById("untilSecond").innerText = "" + calculation.until.seconds;
             if(calculation.until.hours === 0 && calculation.until.minutes === 0 && calculation.until.seconds >= -1 && calculation.until.seconds <= 20 ) {
                 document.getElementsByTagName("body")[0].className = "shake" + Math.round(calculation.until.seconds/2);
-                if(calculation.until.seconds === 0) {
-                    document.getElementsByTagName("div")[1].className = "shake0";
-                    document.getElementsByTagName("div")[2].className = "shake0";
-                    document.getElementsByTagName("div")[4].className = "shake0";
-                    document.getElementsByTagName("div")[5].className = "shake0";
-                    document.getElementsByTagName("div")[6].className = "shake0";
-                    document.getElementsByTagName("div")[7].className = "shake0";
-                } else if(calculation.until.seconds === -1) {
+                document.getElementsByTagName("div")[1].className = "shake" + Math.round(calculation.until.seconds/2);
+                document.getElementsByTagName("div")[2].className = "shake" + Math.round(calculation.until.seconds/2);
+                document.getElementsByTagName("div")[4].className = "shake" + Math.round(calculation.until.seconds/2);
+                document.getElementsByTagName("div")[5].className = "shake" + Math.round(calculation.until.seconds/2);
+                document.getElementsByTagName("div")[6].className = "shake" + Math.round(calculation.until.seconds/2);
+                document.getElementsByTagName("div")[7].className = "shake" + Math.round(calculation.until.seconds/2);
+                if(calculation.until.seconds === -1) {
                     window.location = window.location.href;
                 }
             } else {
