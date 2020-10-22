@@ -19,10 +19,16 @@ class DateUtils {
 
     //source: https://stackoverflow.com/a/9763769/7309237
     static msToTime(duration) {
+        let minus = duration < 0;
+        duration = Math.abs(duration);
         let seconds = Math.floor((duration / 1000) % 60);
         let minutes = Math.floor((duration / (1000 * 60)) % 60);
         let hours = Math.floor((duration / (1000 * 60 * 60)));
-        return {hours: hours, minutes: minutes, seconds: seconds}
+        if(minus) {
+            return {hours: -hours, minutes: -minutes, seconds: -seconds}
+        } else {
+            return {hours: hours, minutes: minutes, seconds: seconds}
+        }
     }
 
     //source: https://stackoverflow.com/a/62597910/7309237
