@@ -1,0 +1,5 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "io.github.trzye.twa",
+                   "sha256_cert_fingerprints": ["C8:F2:1B:44:7C:BC:AF:78:FB:D1:3B:0D:4A:02:79:91:03:D7:65:FC:D7:7B:23:F8:46:D9:57:92:3F:74:0C:24"] }
+    }]
